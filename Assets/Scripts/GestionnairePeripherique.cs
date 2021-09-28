@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class GestionnairePeripherique : MonoBehaviour
 {
     [SerializeField] private Vector2 deplacement;
+    [SerializeField] private Vector2 regard;
 
     private PeripheriqueEntree peripheriqueEntree;
 
@@ -20,6 +21,9 @@ public class GestionnairePeripherique : MonoBehaviour
 
         peripheriqueEntree.JoueurAuSol.Deplacer.performed += LireMouvmentDeplacement;
         peripheriqueEntree.JoueurAuSol.Deplacer.canceled += LireMouvmentDeplacement;
+
+        peripheriqueEntree.JoueurAuSol.Regarder.performed += LireMouvmentRegard;
+        peripheriqueEntree.JoueurAuSol.Regarder.canceled += LireMouvmentRegard;
     }
 
 
@@ -39,6 +43,12 @@ public class GestionnairePeripherique : MonoBehaviour
     {
         deplacement = context.ReadValue<Vector2>();
         Debug.Log("Moved");
+    }
+
+    private void LireMouvmentRegard(InputAction.CallbackContext context)
+    {
+        regard = Vector2.ClampMagnitude(context.ReadValue<Vector2>(), 1);
+        Debug.Log("Regarde");
     }
 
 
