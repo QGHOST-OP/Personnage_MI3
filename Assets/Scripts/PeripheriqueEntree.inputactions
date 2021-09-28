@@ -20,6 +20,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Regarder",
+                    "type": "Value",
+                    "id": "323450c0-a035-4bde-b328-4884b8eda2f8",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -163,6 +171,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Sauter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7fd624a2-4421-4b9e-a507-e0fc6bf957d7",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Regarder",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "63e23907-9833-4b51-86be-044b8d683bfc",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Regarder",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
