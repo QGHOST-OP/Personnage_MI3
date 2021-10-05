@@ -21,6 +21,8 @@ public class GestionnairePeripherique : MonoBehaviour
      public float regardHorizontale;
 
      public UnityEvent sauter;
+
+     public UnityEvent clic;
     #endregion
 
     #region AWAKE
@@ -38,6 +40,8 @@ public class GestionnairePeripherique : MonoBehaviour
         peripheriqueEntree.JoueurAuSol.Sprint.canceled += LireSprint;
 
         peripheriqueEntree.JoueurAuSol.Sauter.started += LireSaut;
+
+        peripheriqueEntree.JoueurAuSol.Cliquer.started += LireClic;
     }
 
     private void OnEnable()
@@ -79,12 +83,14 @@ public class GestionnairePeripherique : MonoBehaviour
         regardHorizontale = regard.x;
         regardVertical = regard.y;
 
-
         Debug.Log("Regarde");
     }
 
 
-
+    private void LireClic(InputAction.CallbackContext context)
+    {
+        clic.Invoke();
+    }
 
     // Start is called before the first frame update
     void Start()

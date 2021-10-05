@@ -49,6 +49,14 @@ public class @PeripheriqueEntree : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Cliquer"",
+                    ""type"": ""Button"",
+                    ""id"": ""8c7139e2-bfef-4da7-b7a3-33a2bd47cc27"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -227,6 +235,28 @@ public class @PeripheriqueEntree : IInputActionCollection, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce0aa517-62f9-4e98-9f2c-dbf7406d50af"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cliquer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de014798-26f1-479a-b39e-b4038c546986"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cliquer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -239,6 +269,7 @@ public class @PeripheriqueEntree : IInputActionCollection, IDisposable
         m_JoueurAuSol_Sauter = m_JoueurAuSol.FindAction("Sauter", throwIfNotFound: true);
         m_JoueurAuSol_Regarder = m_JoueurAuSol.FindAction("Regarder", throwIfNotFound: true);
         m_JoueurAuSol_Sprint = m_JoueurAuSol.FindAction("Sprint", throwIfNotFound: true);
+        m_JoueurAuSol_Cliquer = m_JoueurAuSol.FindAction("Cliquer", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -292,6 +323,7 @@ public class @PeripheriqueEntree : IInputActionCollection, IDisposable
     private readonly InputAction m_JoueurAuSol_Sauter;
     private readonly InputAction m_JoueurAuSol_Regarder;
     private readonly InputAction m_JoueurAuSol_Sprint;
+    private readonly InputAction m_JoueurAuSol_Cliquer;
     public struct JoueurAuSolActions
     {
         private @PeripheriqueEntree m_Wrapper;
@@ -300,6 +332,7 @@ public class @PeripheriqueEntree : IInputActionCollection, IDisposable
         public InputAction @Sauter => m_Wrapper.m_JoueurAuSol_Sauter;
         public InputAction @Regarder => m_Wrapper.m_JoueurAuSol_Regarder;
         public InputAction @Sprint => m_Wrapper.m_JoueurAuSol_Sprint;
+        public InputAction @Cliquer => m_Wrapper.m_JoueurAuSol_Cliquer;
         public InputActionMap Get() { return m_Wrapper.m_JoueurAuSol; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -321,6 +354,9 @@ public class @PeripheriqueEntree : IInputActionCollection, IDisposable
                 @Sprint.started -= m_Wrapper.m_JoueurAuSolActionsCallbackInterface.OnSprint;
                 @Sprint.performed -= m_Wrapper.m_JoueurAuSolActionsCallbackInterface.OnSprint;
                 @Sprint.canceled -= m_Wrapper.m_JoueurAuSolActionsCallbackInterface.OnSprint;
+                @Cliquer.started -= m_Wrapper.m_JoueurAuSolActionsCallbackInterface.OnCliquer;
+                @Cliquer.performed -= m_Wrapper.m_JoueurAuSolActionsCallbackInterface.OnCliquer;
+                @Cliquer.canceled -= m_Wrapper.m_JoueurAuSolActionsCallbackInterface.OnCliquer;
             }
             m_Wrapper.m_JoueurAuSolActionsCallbackInterface = instance;
             if (instance != null)
@@ -337,6 +373,9 @@ public class @PeripheriqueEntree : IInputActionCollection, IDisposable
                 @Sprint.started += instance.OnSprint;
                 @Sprint.performed += instance.OnSprint;
                 @Sprint.canceled += instance.OnSprint;
+                @Cliquer.started += instance.OnCliquer;
+                @Cliquer.performed += instance.OnCliquer;
+                @Cliquer.canceled += instance.OnCliquer;
             }
         }
     }
@@ -347,5 +386,6 @@ public class @PeripheriqueEntree : IInputActionCollection, IDisposable
         void OnSauter(InputAction.CallbackContext context);
         void OnRegarder(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnCliquer(InputAction.CallbackContext context);
     }
 }
