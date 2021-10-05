@@ -45,7 +45,7 @@ public class DeplacementPersonnage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        toucheSol = Physics.CheckSphere(verifToucheSol.position, distanceAuSol, layerSol);
+        toucheSol = Physics.CheckSphere(verifToucheSol.position, distanceAuSol, layerSol); //Collider check
 
         Vector3 move = new Vector3(gestionnairePeripherique.deplacementX, 0, gestionnairePeripherique.deplacementZ);
 
@@ -54,7 +54,7 @@ public class DeplacementPersonnage : MonoBehaviour
         characterController.Move(move * vitessePersonnage * Time.deltaTime);
 
 
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += gravity * Time.deltaTime; //Gravity
         characterController.Move(velocity * Time.deltaTime);
 
     }

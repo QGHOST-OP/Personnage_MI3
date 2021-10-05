@@ -9,18 +9,21 @@ public class GestionnairePeripherique : MonoBehaviour
 {
     #region VARIABLES
     private Vector2 deplacement;
-    [SerializeField] private Vector2 regard;
+    private Vector2 regard;
     public bool sprint;
     private PeripheriqueEntree peripheriqueEntree;
 
 
      public float deplacementX;
      public float deplacementZ;
+    
+     public float regardVertical;
+     public float regardHorizontale;
 
      public UnityEvent sauter;
     #endregion
 
-
+    #region AWAKE
     private void Awake()
     {
         peripheriqueEntree = new PeripheriqueEntree();
@@ -46,8 +49,7 @@ public class GestionnairePeripherique : MonoBehaviour
     {
         peripheriqueEntree.JoueurAuSol.Disable();
     }
-
-
+    #endregion
 
     private void LireSaut(InputAction.CallbackContext context) //Saut
     {
@@ -73,6 +75,11 @@ public class GestionnairePeripherique : MonoBehaviour
     private void LireMouvementRegard(InputAction.CallbackContext context) //Regard
     {
         regard = Vector2.ClampMagnitude(context.ReadValue<Vector2>(), 1);
+
+        regardHorizontale = regard.x;
+        regardVertical = regard.y;
+
+
         Debug.Log("Regarde");
     }
 
