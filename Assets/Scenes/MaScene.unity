@@ -1032,6 +1032,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gestionnairePeripherique: {fileID: 921324525}
   personnage: {fileID: 1862326512}
+  vitesseCamVertical: 1000
+  vitesseCamHorizontale: 1000
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

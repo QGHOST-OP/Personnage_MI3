@@ -7,7 +7,7 @@ public class DeplacementPersonnage : MonoBehaviour
     #region VARIABLES
     [SerializeField] private GestionnairePeripherique gestionnairePeripherique;
     [SerializeField] CharacterController characterController;
-    
+
     [Header("Parametre Personnage")]
     [SerializeField] private float vitessePersonnage = 2f;
     [SerializeField] private float vitesseSprintPersonnage = 4f;
@@ -23,7 +23,7 @@ public class DeplacementPersonnage : MonoBehaviour
     private float distanceAuSol = 0.2f;
     private bool toucheSol;
 
-    
+
 
     #endregion
 
@@ -47,7 +47,9 @@ public class DeplacementPersonnage : MonoBehaviour
     {
         toucheSol = Physics.CheckSphere(verifToucheSol.position, distanceAuSol, layerSol); //Collider check
 
-        Vector3 move = new Vector3(gestionnairePeripherique.deplacementX, 0, gestionnairePeripherique.deplacementZ);
+        // Vector3 move = new Vector3(gestionnairePeripherique.deplacementX, 0, gestionnairePeripherique.deplacementZ);
+
+        Vector3 move = transform.right * gestionnairePeripherique.deplacementX + transform.forward * gestionnairePeripherique.deplacementZ;
 
         if (gestionnairePeripherique.sprint) vitessePersonnage = vitesseSprintPersonnage;
 
