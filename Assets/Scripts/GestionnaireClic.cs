@@ -48,6 +48,12 @@ public class GestionnaireClic : MonoBehaviour
                 objetCollision = hit.transform.gameObject;
 
                 Debug.Log(objetCollision.name);
+
+
+                if (hit.collider.gameObject.tag == "Cube")
+                {
+                    Destroy(hit.collider.gameObject);
+                }
             }
         }
     }

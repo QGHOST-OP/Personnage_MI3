@@ -20,7 +20,7 @@ public class RegardJoueur : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -29,11 +29,12 @@ public class RegardJoueur : MonoBehaviour
         float mouseX = gestionnairePeripherique.regardHorizontale * Time.deltaTime * vitesseCamHorizontale;
         float mouseY = gestionnairePeripherique.regardVertical * Time.deltaTime * vitesseCamVertical;
 
+
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 50f);
 
 
-        transform.localRotation = Quaternion.Euler(xRotation ,0f ,0f) ;
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
         personnage.Rotate(Vector3.up * mouseX);
     }
