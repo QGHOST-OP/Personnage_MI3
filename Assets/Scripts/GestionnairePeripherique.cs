@@ -14,15 +14,17 @@ public class GestionnairePeripherique : MonoBehaviour
     private PeripheriqueEntree peripheriqueEntree;
 
 
-     public float deplacementX;
-     public float deplacementZ;
-    
-     public float regardVertical;
-     public float regardHorizontale;
+    public float deplacementX;
+    public float deplacementZ;
 
-     public UnityEvent sauter;
+    public float regardVertical;
+    public float regardHorizontale;
 
-     public UnityEvent clic;
+    public UnityEvent sauter;
+
+    public UnityEvent clic;
+
+
     #endregion
 
     #region AWAKE
@@ -62,7 +64,10 @@ public class GestionnairePeripherique : MonoBehaviour
 
     private void LireSprint(InputAction.CallbackContext context) //Sprinting
     {
-        Debug.Log("Sprinting");
+        Debug.Log(context.ReadValue<float>());
+        sprint = true;
+
+
     }
 
     private void LireMouvementDeplacement(InputAction.CallbackContext context) //Deplacement
@@ -103,4 +108,9 @@ public class GestionnairePeripherique : MonoBehaviour
     {
 
     }
+
+
+    #region Methodes externes
+     #endregion
 }
+

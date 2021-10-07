@@ -44,7 +44,7 @@ public class @PeripheriqueEntree : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Sprint"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""f1eea1a0-492c-4103-b7b5-6e0262761cb6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
